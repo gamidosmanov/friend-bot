@@ -55,6 +55,8 @@ for msg in data['messages']:
         and 'media_type' not in msg
         and 'file' not in msg
         and 'from' != None
+        and len(msg['text']) > 14 
+        and len(msg['text']) < 125
     ):
         if msg['from_id'] not in users_dict:
             users_dict[msg['from_id']] = 1
@@ -69,7 +71,7 @@ for msg in data['messages']:
                 msg['id'],
                 int(datetime.strptime(msg['date'], date_format).timestamp()),
                 int(re.sub(r'[a-z]', '', msg['from_id'])),
-                msg['text']
+                msg['text'].upper()
             )
         )
 

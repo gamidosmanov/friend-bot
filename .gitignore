@@ -1,3 +1,4 @@
 data.json
 .vscode
 messages.db
+*.sh

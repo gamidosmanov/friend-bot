@@ -1,5 +1,5 @@
 FROM python:3.11-slim
 COPY main.py .
-COPY data.json .
-RUN pip install telebot aiohttp pandas
+COPY messages.db .
+RUN pip install --no-cache-dir telebot
 CMD ["python", "./main.py"]
