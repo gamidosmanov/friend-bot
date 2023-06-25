@@ -1,6 +1,7 @@
 import os
 from telebot.async_telebot import AsyncTeleBot
 import asyncio
+import aiohttp
 import sqlite3 as sql
 from datetime import datetime
 
