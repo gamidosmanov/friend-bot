@@ -6,11 +6,14 @@ import aiohttp
 from telebot.async_telebot import AsyncTeleBot
 import asyncio
 import time
+import sqlite3 as sql
 
 bot = AsyncTeleBot(os.environ['SEMEN_BOT_TOKEN'])
 
 with open('data.json', encoding='utf-8') as json_file:
     data = json.load(json_file)
+
+exit()
 
 semen = []
 semen_date = []
@@ -36,7 +39,7 @@ df['Date'] = semen_date
 
 df1 = df.reindex(df.Message.str.len().sort_values().index)
 df1 = df1.reset_index(drop=True)
-df=df1
+df = df1
 
 @bot.message_handler(commands=['dispense_wisdom'])
 async def dispense(message):
